@@ -1,7 +1,13 @@
 h1 {
-   color: #d22e3a
+   color: #808080;
+}
+h2.avr {
+font-size: 20px
+background: url("/static/img/mission_small.png") no-repeat;
+color: #555555;
+padding-left: 150px;
 }
 h4 {
-    color: #AAAAAA
-    padding-left: 20px
+    color: #808080;
+    padding-left: 20px;
 }
