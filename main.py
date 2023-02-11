@@ -22,7 +22,8 @@ def list_prof(list='ol'):
                    'инженер по терраформированию', 'климатолог', 'специалист по радиационной защите',
                    'астрогеолог', 'гляциолог', 'инженер жизнеобеспечения', 'метеоролог',
                    'оператор марсохода', 'киберинженер', 'штурман', 'пилот дронов']
-    return render_template('list_prof.html', prof=list, professions=professions, title="Список профессий")
+    return render_template('list_prof.html', prof=list, professions=professions,
+                           title="Список профессий")
 
 
 @app.route('/promotion')
@@ -203,6 +204,20 @@ def form_sample():
         print(request.form.get('file'))
         print(request.form.get('accept'))
         return "<h1>Форма отправлена<h1>"
+
+
+@app.route('/answer')
+@app.route('/auto_answer')
+def answer():
+    param = {'title': 'Автоматический ответ',
+             'surname': "Joe",
+             'name': "BIden",
+             'education': "0",
+             'profession': "daun",
+             'sex': "hz",
+             'motivation': "money",
+             'ready': "yes"}
+    return render_template('auto_answer.html', **param)
 
 
 if __name__ == '__main__':
