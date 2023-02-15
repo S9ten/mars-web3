@@ -2,10 +2,10 @@ h1 {
    color: #808080;
 }
 h2.avr {
-font-size: 20px
-background: url("/static/img/mission_small.png") no-repeat;
-color: #555555;
-padding-left: 150px;
+    font-size: 20px
+    background: url("/static/img/mission_small.png") no-repeat;
+    color: #555555;
+    padding-left: 150px;
 }
 h4 {
     color: #808080;
