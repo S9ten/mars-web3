@@ -2,12 +2,14 @@ from flask import Flask, url_for, request, render_template
 from werkzeug.utils import redirect
 
 from data import db_session
-from data.news import News
+from data.jobs import User
 from form.login_form import LoginForm
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+
+
 @app.route('/<title>')
 @app.route('/index')
 @app.route('/index/<title>')
@@ -223,6 +225,8 @@ def answer():
              'motivation': "money",
              'ready': "yes"}
     return render_template('auto_answer.html', **param)
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -231,5 +235,17 @@ def login():
     return render_template('login.html', title='Авторизация', form=form)
 
 
+def jobs_create():
+    session = db_session.create_session()
+    job = User(job='ter', worksize='much', collaborators='3, 5')
+    session.add(job)
+    job = User(job='tir', worksize='more', collaborators='4, 5')
+    session.add(job)
+    job = User(job='tor', worksize='more more', collaborators='3, 6')
+    session.add(job)
+    session.commit()
+
+
 if __name__ == '__main__':
+    jobs_create()
     app.run(port=8080, host='127.0.0.1')
