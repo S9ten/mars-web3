@@ -1,6 +1,8 @@
 from flask import Flask, url_for, request, render_template
 from werkzeug.utils import redirect
 
+from data import db_session
+from data.news import News
 from form.login_form import LoginForm
 
 app = Flask(__name__)
